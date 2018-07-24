@@ -1,0 +1,31 @@
+<html>
+<body>
+<H1>Print Entire Data</H1>
+<form action = "{{ url_for('advancedsearch') }}" method = "POST">
+Enter username
+<input type = "text" username = "username" /></br>
+<input type = "submit" value = "submit" /><br>
+
+</form>
+
+<table border = 1>
+         <thead>
+            <td>username</td>
+            <td>phone</td>
+            <td>popular_tweet</td>
+            <td>number_follower</td>
+            <td>retweet</td>
+         </thead>
+         
+         {% for row in rows %}
+            <tr>
+               <td>{{row["username"]}}</td>
+               <td>{{row["phone"]}}</td>
+               <td> {{ row["popular_tweet"]}}</td>
+               <td>{{row['number_follower']}}</td>
+               <td>{{row['retweet']}}</td>	
+            </tr>
+         {% endfor %}
+      </table>
+</body>
+</html>
